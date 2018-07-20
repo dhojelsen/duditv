@@ -1,0 +1,15 @@
+{
+  "name": "dudiTV",
+  "version": "0.0.1",
+  "description": "RPI tv streaming app",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js"
+  },
+  "author": "David Højelsen",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "latest",
+    "node-cec": "^0.1.2"
+  }
+}
