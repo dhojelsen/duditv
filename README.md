@@ -35,13 +35,12 @@ Once booted run the following and answer yes to nodm
 
 ```bash
 
-# packages for x
-sudo apt-get -y update
-sudo apt-get -y install vim omxplayer libgtk2.0-0 libxss1 libgconf-2-4 libnss3 libxtst6 xinit nodm cec-utils
-
 # node
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install nodejs
+
+# packages for x
+sudo apt-get -y update
+sudo apt-get -y install git nodejs vim omxplayer libgtk3.0-0 libxss1 libgconf-2-4 libnss3 libxtst6 xinit nodm cec-utils
 
 echo "cd duditv
 exec npm start" > ~/.xinitrc
@@ -55,7 +54,13 @@ NODM_XSESSION=/home/pi/.xinitrc
 NODM_OPTIONS=
 NODM_X_OPTIONS='-nolisten tcp -nocursor -s 0 dpms'
 NODM_MIN_SESSION_TIME=60
-NODM_X_TIMEOUT=300" > /etc/default/nodm
+NODM_X_TIMEOUT=300" | sudo tee /etc/default/nodm
+
+# cloning repo
+git clone https://github.com/dhojelsen/duditv.git
+cd duditv
+npm install
+
 
 ```
 
